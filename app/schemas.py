@@ -1,13 +1,25 @@
+from typing import Literal
+
 from pydantic import BaseModel, Field
 
 
 class ChartRequest(BaseModel):
-    name: str = Field(..., examples=["Joana"])
-    birth_date: str = Field(..., examples=["1990-08-15"], description="Format: YYYY-MM-DD")
-    birth_time: str = Field(..., examples=["14:35"], description="Format: HH:MM")
-    birth_city: str = Field(..., examples=["São Paulo, Brasil"])
-    timezone: str = Field("America/Sao_Paulo", examples=["America/Sao_Paulo"])
-    house_system: str = Field("equal", examples=["equal"])
+    name: str = Field(..., examples=["Joana"], min_length=1)
+    birth_date: str = Field(
+        ...,
+        examples=["1990-08-15"],
+        description="Format: YYYY-MM-DD",
+        pattern=r"^\d{4}-\d{2}-\d{2}$",
+    )
+    birth_time: str = Field(
+        ...,
+        examples=["14:35"],
+        description="Format: HH:MM",
+        pattern=r"^([01]\d|2[0-3]):[0-5]\d$",
+    )
+    birth_city: str = Field(..., examples=["São Paulo, Brasil"], min_length=1)
+    timezone: str = Field("America/Sao_Paulo", examples=["America/Sao_Paulo"], min_length=1)
+    house_system: Literal["equal"] = Field("equal", examples=["equal"])
 
 
 class PlanetPosition(BaseModel):
