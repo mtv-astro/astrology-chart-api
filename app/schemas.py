@@ -4,7 +4,7 @@ from pydantic import BaseModel, Field
 
 
 class ChartRequest(BaseModel):
-    name: str = Field(..., examples=["Joana"], min_length=1)
+    name: str = Field(..., examples=["Demo User"], min_length=1)
     birth_date: str = Field(
         ...,
         examples=["1990-08-15"],

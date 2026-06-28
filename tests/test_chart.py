@@ -9,7 +9,7 @@ def test_chart_response_shape():
     response = client.post(
         "/chart",
         json={
-            "name": "Joana",
+            "name": "Demo User",
             "birth_date": "1990-08-15",
             "birth_time": "14:35",
             "birth_city": "São Paulo, Brasil",
@@ -21,7 +21,7 @@ def test_chart_response_shape():
     assert response.status_code == 200
     payload = response.json()
 
-    assert payload["name"] == "Joana"
+    assert payload["name"] == "Demo User"
     assert payload["engine"] == "flatlib-swiss-ephemeris"
     assert payload["sun"]
     assert payload["moon"]
