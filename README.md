@@ -1,5 +1,9 @@
 # Astrology Chart API
 
+<p align="center">
+  <img src="docs/astrology-chart-api-hero.svg" alt="Astrology Chart API hero banner" width="100%" />
+</p>
+
 ![Python](https://img.shields.io/badge/Python-3.11%2B-blue)
 ![FastAPI](https://img.shields.io/badge/FastAPI-0.115-green)
 ![Flatlib](https://img.shields.io/badge/Flatlib-Swiss%20Ephemeris-purple)
